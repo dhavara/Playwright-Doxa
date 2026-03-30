@@ -25,7 +25,7 @@ test('Login', async ({page}) => {
 
   await page.getByRole('button', { name: 'Login' }).click();
 
-  // await expect(page).toHaveURL('https://admin-uat.doxa-holdings.com/', {timeout: 10000});
+  await expect(page).toHaveURL('https://admin-uat.doxa-holdings.com/', {timeout: 10000});
 
   // await expect(page).toHaveTitle('/Dashboard/', {timeout: 10000});
 });
