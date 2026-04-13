@@ -1,0 +1,4 @@
+﻿Group Number,Parent Group,Work Code*,Description*,Uom Code*,Retention,Quantity*,Unit Price*,Remarks
+1,,Work 1,Architectural,LS,TRUE,1,10000,
+2,,Work 2,Civil & Structural Engineering,LS,TRUE,1,45000,
+3,,Work 3,Mechanical Engineering,LS,TRUE,1,15000,

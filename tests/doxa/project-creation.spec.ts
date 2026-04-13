@@ -1,49 +1,49 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
+import { LoginPage } from "../../pages/login.page.spec";
+import { ProjectPage } from "../../pages/project.page.spec";
+import data from "../../data/data.json";
 
-test('TC-04 - Create New Project', async ({ page }) => {
-  test.setTimeout(60000);
-  await page.goto('https://admin-uat.doxa-holdings.com/login');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('dhava.maincon@getnada.com');
-  await page.getByRole('textbox', { name: 'Password *' }).click();
-  await page.getByRole('textbox', { name: 'Password *' }).fill('123456789');
-  await page.getByRole('button', { name: 'Login' }).click();
+const ACTOR_KEYS = ["subcon_01"] as const;
+type ActorKey = (typeof ACTOR_KEYS)[number];
 
-  await page.waitForURL('https://admin-uat.doxa-holdings.com/**', { timeout: 15_000 });
-  await page.waitForLoadState('networkidle');
+for (const actorKey of ACTOR_KEYS) {
+  const actor = data[actorKey];
 
-  await page.getByText('System Configuration').click();
-  
-  await page.locator('a').filter({ hasText: 'Project Management' }).click();
-  await page.getByRole('link', { name: 'List of Project' }).click();
-  await page.getByRole('button', { name: ' Create New' }).click();
-  await page.getByText('Yes').click();
-  await page.getByRole('textbox', { name: 'Enter DTF Project Code' }).click();
-  await page.getByRole('textbox', { name: 'Enter DTF Project Code' }).fill('DTF-Auto-008');
-  await page.getByRole('textbox', { name: 'Project Code', exact: true }).click();
-  await page.getByRole('textbox', { name: 'Project Code', exact: true }).fill('DTF-Auto-008');
-  await page.getByRole('textbox', { name: 'Enter Project Title' }).click();
-  await page.getByRole('textbox', { name: 'Enter Project Title' }).fill('DTF-Auto-008');
-  await page.getByPlaceholder('EnterStartDate').fill('2026-04-01');
-  await page.getByPlaceholder('EnterEndDate').fill('2028-04-01');
-  await page.locator('svg').first().click();
-  await page.locator('#react-select-2-input').fill('sgd');
-  await page.getByText('Singapore Dollar (SGD)', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Enter Project Budget' }).click();
-  await page.getByRole('textbox', { name: 'Enter Project Budget' }).fill('1000000');
-  await page.locator('svg').nth(1).click();
-  await page.getByText('Headquarters', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Enter Project Description' }).click();
-  await page.getByRole('textbox', { name: 'Enter Project Description' }).fill('DTF-Auto-008');
-  await page.getByRole('row', { name: 'Overall Project In-Charge *' }).locator('svg').click();
-  await page.locator('#react-select-4-option-0').click();
-  await page.locator('div').filter({ hasText: /^Please select user$/ }).nth(3).click();
-  await page.locator('#react-select-5-option-0').click();
-  await page.getByText('Please select Project Team').click();
-  await page.locator('#react-select-6-option-0').click();
-  await page.locator('div:nth-child(3) > .css-tj5bde-Svg').click();
-  await page.getByText('New User', { exact: true }).click();
-  await page.getByRole('button', { name: 'Create' }).click();
-  await page.getByRole('button', { name: 'Yes' }).click();
-  await page.getByRole('button', { name: 'I Understand' }).click();
-});
+  if (!actor.run_test) {
+    test.skip(`TC-04 - ${actorKey}: Create New Project`, () => {});
+    continue;
+  }
+
+  test(`TC-04 - ${actorKey}: Create New Project`, async ({ page }) => {
+    test.setTimeout(60000);
+
+    const loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(actor.credentials.email, actor.credentials.password);
+    await loginPage.waitForDashboard();
+
+    const projectPage = new ProjectPage(page);
+    await projectPage.navigateToProjectList();
+    await projectPage.clickCreateNew();
+
+    const projectData = {
+      dtf_project_code: data.dtf_project_code,
+      project_code: actor.project_code,
+      project_title: actor.project_title,
+      start_date: actor.start_date,
+      end_date: actor.end_date,
+      currency: actor.currency,
+      currency_label: actor.currency_label,
+      overall_budget: actor.overall_budget,
+      project_address: actor.project_address,
+      project_description: actor.project_description,
+      overall_pic: actor.overall_pic,
+      project_admin: actor.project_admin,
+      team_members_count: actor.team_members_count,
+    };
+
+    await projectPage.ProjectInfo(projectData);
+    await projectPage.ProjectMembers(projectData);
+    await projectPage.submitAndConfirm();
+  });
+}

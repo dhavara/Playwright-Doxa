@@ -1,0 +1,5 @@
+﻿Group Number,Parent Group,Work Code*,Description*,Uom Code*,Retention,Quantity*,Unit Price*,Remarks
+1,,Work 1,Labour,LS,TRUE,1,20000,
+2,,Work 2,Supply of Concrete,LS,TRUE,1,60000,
+3,,Work 3,Formwork ,LS,TRUE,1,30000,
+4,,Work 4,Signages,LS,TRUE,1,20000,
