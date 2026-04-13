@@ -7,6 +7,7 @@ export interface ProjectData {
   start_date: string;
   end_date: string;
   currency: string;
+  currency_label: string;
   overall_budget: string;
   project_address: string;
   project_description: string;
@@ -19,81 +20,88 @@ export class ProjectPage {
   constructor(private page: Page) {}
 
   async navigateToProjectList() {
-    await this.page.getByRole('link', { name: 'System Configuration' }).click();
-    await this.page.getByRole('link', { name: 'Project Management' }).click();
+    await this.page.getByText('System Configuration').click();
+    await this.page.locator('a').filter({ hasText: 'Project Management' }).click();
     await this.page.getByRole('link', { name: 'List of Project' }).click();
     await this.page.waitForLoadState('networkidle');
   }
 
   async clickCreateNew() {
-    await this.page.getByRole('button', { name: 'Create New' }).click();
+    await this.page.getByRole('button', { name: ' Create New' }).click();
+    await this.page.waitForLoadState('networkidle');
+    // Confirm the DTF Project modal
+    await this.page.getByText('Yes').click();
     await this.page.waitForLoadState('networkidle');
   }
 
-  async fillProjectInfo(data: ProjectData) {
-    // Enable DTF Project toggle
-    const dtfToggle = this.page.locator('label').filter({ hasText: 'DTF Project?' }).locator('..').getByRole('switch');
-    const isChecked = await dtfToggle.isChecked().catch(() => false);
-    if (!isChecked) {
-      await dtfToggle.click();
-    }
-
-    // DTF Project Code (shared across supply chain)
-    await this.page.getByLabel('DTF Project Code').fill(data.dtf_project_code);
+  async ProjectInfo(data: ProjectData) {
+    // DTF Project Code
+    await this.page.getByRole('textbox', { name: 'Enter DTF Project Code' }).fill(data.dtf_project_code);
 
     // Project Code
-    await this.page.getByLabel('Project Code').fill(data.project_code);
+    await this.page.getByRole('textbox', { name: 'Project Code', exact: true }).fill(data.project_code);
 
     // Project Title
-    await this.page.getByLabel('Project Title').fill(data.project_title);
+    await this.page.getByRole('textbox', { name: 'Enter Project Title' }).fill(data.project_title);
 
-    // Start Date
-    await this.page.getByLabel('Start Date').fill(data.start_date);
+    // Start Date & End Date (placeholders used by the actual site)
+    await this.page.getByPlaceholder('EnterStartDate').fill(data.start_date);
+    await this.page.getByPlaceholder('EnterEndDate').fill(data.end_date);
 
-    // End Date
-    await this.page.getByLabel('End Date').fill(data.end_date);
+    // Currency — react-select searchable dropdown
+    await this.page.locator('svg').first().click();
+    await this.page.locator('#react-select-2-input').fill(data.currency);
+    // Click the matching option text, e.g. "Singapore Dollar (SGD)"
+    await this.page.getByText(data.currency_label, { exact: true }).click();
 
-    // Currency — select SGD then press Escape to dismiss the dropdown overlay
-    await this.page.getByLabel('Currency').click();
-    await this.page.getByRole('option', { name: data.currency }).click();
-    await this.page.keyboard.press('Escape');
+    // Overall Budget
+    await this.page.getByRole('textbox', { name: 'Enter Project Budget' }).fill(data.overall_budget);
 
-    // Overall Budget (now accessible after dropdown is dismissed)
-    await this.page.getByLabel('Overall Budget').fill(data.overall_budget);
-
-    // Project Address — autocomplete field: fill, wait for dropdown, click first option
-    const addressInput = this.page.getByLabel('Project Address');
-    await addressInput.fill(data.project_address);
-    await this.page.waitForSelector('[role="listbox"], [role="option"], .dropdown-menu', { timeout: 5000 });
-    await this.page.locator('[role="option"]').first().click();
+    // Project Address — react-select dropdown, click second SVG trigger
+    await this.page.locator('svg').nth(1).click();
+    await this.page.getByText(data.project_address, { exact: true }).click();
 
     // Project Description
-    await this.page.getByLabel('Project Description').fill(data.project_description);
+    await this.page.getByRole('textbox', { name: 'Enter Project Description' }).fill(data.project_description);
   }
 
-  async fillProjectMembers(data: ProjectData) {
+  async ProjectMembers(data: ProjectData) {
     // Overall Project In-Charge
-    await this.page.getByLabel('Overall Project In-Charge').click();
-    await this.page.getByRole('option', { name: data.overall_pic }).click();
+    await this.page.getByRole('row', { name: 'Overall Project In-Charge *' }).locator('svg').click();
+    await this.page.waitForTimeout(400);
+    await this.page.locator('#react-select-4-input').fill(data.overall_pic);
+    await this.page.waitForTimeout(600);
+    await this.page.locator('[id^="react-select-4-option"]').filter({ hasText: data.overall_pic }).click();
 
     // Project Admin
-    await this.page.getByLabel('Project Admin').click();
-    await this.page.getByRole('option', { name: data.project_admin }).click();
+    await this.page.getByRole('row', { name: 'Project Admin *' }).locator('svg').click();
+    await this.page.waitForTimeout(400);
+    await this.page.locator('#react-select-5-input').fill(data.project_admin);
+    await this.page.waitForTimeout(600);
+    await this.page.locator('[id^="react-select-5-option"]').filter({ hasText: data.project_admin }).click();
 
-    // Project Team Members — custom multi-select: click to open, then press Enter for each member
-    const teamMembersDropdown = this.page.getByLabel('Project Team Members');
-    await teamMembersDropdown.click();
-    for (let i = 0; i < data.team_members_count; i++) {
-      await this.page.keyboard.press('Enter');
+    // Project Team Members
+    // Open dropdown first, THEN count available options
+    await this.page.getByText('Please select Project Team').click();
+    await this.page.waitForTimeout(400);
+
+    const count = await this.page.locator('[id^="react-select-6-option"]').count();
+    console.log(`Found ${count} team members available`);
+
+    for (let i = 0; i < count; i++) {
+      await this.page.keyboard.press('ArrowDown'); // highlight the first option
+      await this.page.keyboard.press('Enter');     // select it
+      await this.page.waitForTimeout(300);
     }
-    // Close the dropdown
-    await this.page.keyboard.press('Escape');
+
+    // Close team member dropdown
+    await this.page.locator('div:nth-child(3) > .css-tj5bde-Svg').click();
   }
 
   async submitAndConfirm() {
     await this.page.getByRole('button', { name: 'Create' }).click();
-    // Confirm the modal dialog
-    await this.page.getByRole('button', { name: 'Confirm' }).click();
+    await this.page.getByRole('button', { name: 'Yes' }).click();
+    await this.page.getByRole('button', { name: 'I Understand' }).click();
     await this.page.waitForLoadState('networkidle');
   }
 }

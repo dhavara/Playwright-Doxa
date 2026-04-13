@@ -1,0 +1,1 @@
+This folder contain automation testing development using playwright for Doxa Connex Deep Tier Financing feature.

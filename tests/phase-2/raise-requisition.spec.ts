@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage2 } from '../../pages/login.page.spec';
-import { RequisitionPage } from '../../pages/requisition.page.spec';
+import { LoginPage2 } from '../../pages/login.page';
+import { RequisitionPage } from '../../pages/requisition.page';
+import { WorkOrderPage } from '../../pages/work-order.page';
 import data from '../../data/data.json';
 
-const ACTOR_KEYS = ["project_owner"] as const;
+const ACTOR_KEYS = ["project_owner", "main_con","subcon_01"] as const;
 type ActorKey = (typeof ACTOR_KEYS)[number];
 
 for (const actorKey of ACTOR_KEYS) {
@@ -48,8 +49,9 @@ test(`TC-06 - ${actorKey}: Raise Requisition`, async ({ page }) => {
   await requisitionPage.uploadCSV(requisitionData);
   await requisitionPage.submitAndConfirm();
 
-  await requisitionPage.convertToWorkOrder(requisitionData);
-  await requisitionPage.navigateToWorkOrders();
-  await requisitionPage.issueWorkOrder(requisitionData);
+  const workOrderPage = new WorkOrderPage(page);
+  await workOrderPage.convertToWorkOrder(requisitionData.contract_title);
+  await workOrderPage.navigateToWorkOrders();
+  await workOrderPage.issueWorkOrder(requisitionData.contract_title);
 });
 }
