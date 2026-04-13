@@ -4,12 +4,7 @@ export class WorkOrderPage {
   constructor(private page: Page) {}
 
   async navigateToWorkOrders() {
-    await this.page.getByText('Orders').click();
-    await this.page.locator('a').filter({ hasText: 'Orders' }).click();
-    await this.page.getByRole('link', { name: 'WO List' }).click();
-    await this.page.waitForLoadState('networkidle');
-    // Reload to ensure the list reflects changes made in a separate tab
-    await this.page.reload();
+    await this.page.goto('https://subcon-uat.doxa-holdings.com/work-order/list');
     await this.page.waitForLoadState('networkidle');
   }
 
@@ -26,7 +21,9 @@ export class WorkOrderPage {
 
     // Confirm the pop-up
     await newPage.getByRole('button', { name: 'Yes' }).click();
-    await newPage.waitForLoadState('networkidle');
+
+    // Wait for the Convert to WO button to disappear — confirms conversion completed on server
+    await newPage.getByRole('button', { name: 'Convert to WO' }).waitFor({ state: 'hidden', timeout: 30000 });
   }
 
   async issueWorkOrder(contractTitle: string) {
@@ -43,5 +40,48 @@ export class WorkOrderPage {
     // Confirm the pop-up
     await newPage.getByRole('button', { name: 'I Understand' }).click();
     await newPage.waitForLoadState('networkidle');
+  }
+
+  async acknowledgeWorkOrder(contractTitle: string) {
+    // Navigate directly to the subcon WO list
+    await this.page.goto('https://subcon-uat.doxa-holdings.com/work-order/list');
+    await this.page.waitForLoadState('networkidle');
+
+    // Switch profile to Supplier if not already active
+    // p-inputswitch has aria-checked="true" when Supplier, "false" when Buyer
+    const toggle = this.page.locator('div.p-inputswitch');
+    const isSupplier = (await toggle.getAttribute('aria-checked')) === 'true';
+
+    if (!isSupplier) {
+      await toggle.click();
+      // Confirm the Switch Profile pop-up
+      await this.page.getByRole('button', { name: 'Yes' }).click();
+      await this.page.waitForLoadState('networkidle');
+    }
+
+    // Double-click the matching contract title row to open detail in a new tab
+    await this.page.getByRole('gridcell', { name: contractTitle }).first().dblclick();
+
+    const newPage = await this.page.context().waitForEvent('page');
+    await newPage.waitForLoadState('networkidle');
+
+    // Click Acknowledge button
+    await newPage.getByRole('button', { name: 'Acknowledge' }).click();
+
+    // Confirm with I Understand
+    await newPage.getByRole('button', { name: 'I Understand' }).click();
+    await newPage.waitForLoadState('networkidle');
+
+    // Close the new tab to return to the original page
+    await newPage.close();
+
+    // Switch back to Buyer profile after acknowledging
+    if ((await toggle.getAttribute('aria-checked')) === 'true') {
+      await toggle.click();
+      // Confirm the Switch Profile pop-up
+      await this.page.getByRole('button', { name: 'Yes' }).click();
+      await this.page.goto('https://subcon-uat.doxa-holdings.com/work-order/list');
+      await this.page.waitForLoadState('networkidle');
+    }
   }
 }

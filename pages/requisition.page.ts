@@ -24,9 +24,7 @@ export class RequisitionPage {
   constructor(private page: Page) {}
 
   async navigateToRaiseRequisition() {
-    await this.page.getByText('Requisitions').click();
-    await this.page.locator('a').filter({ hasText: 'Requisitions' }).click();
-    await this.page.getByRole('link', { name: 'Raise Requisition' }).click();
+    await this.page.goto('https://subcon-uat.doxa-holdings.com/work-requisition/raise');
     await this.page.waitForLoadState('networkidle');
   }
 
@@ -59,7 +57,7 @@ export class RequisitionPage {
 
     // Person-in-Charge — open dropdown and wait for options before clicking
     await this.page.locator('div').filter({ hasText: /^Please select Person-in-Charge \(Respondent\)$/ }).nth(3).click();
-    await this.page.waitForSelector('[id^="react-select-3-option"]', { timeout: 5000 });
+    await this.page.waitForSelector('[id^="react-select-3-option"]', { timeout: 3000 });
     await this.page.locator('[id^="react-select-3-option"]').first().click();
 
     // Retention rates
