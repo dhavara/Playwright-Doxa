@@ -2,8 +2,9 @@ import { test, expect } from '@playwright/test';
 import { LoginPage2 } from '../../pages/login.page.spec';
 import { RequisitionPage } from '../../pages/requisition.page.spec';
 import data from '../../data/data.json';
+import { WorkOrderPage } from '../../pages/work-order.page.spec';
 
-const ACTOR_KEYS = ["project_owner"] as const;
+const ACTOR_KEYS = ["project_owner", "main_con", "subcon_01"] as const;
 type ActorKey = (typeof ACTOR_KEYS)[number];
 
 for (const actorKey of ACTOR_KEYS) {
@@ -15,7 +16,7 @@ for (const actorKey of ACTOR_KEYS) {
   }
 
 test(`TC-06 - ${actorKey}: Raise Requisition`, async ({ page }) => {
-  test.setTimeout(60000);
+  test.setTimeout(1200000);
 
   const loginPage = new LoginPage2(page);
   await loginPage.goto();
@@ -26,6 +27,8 @@ test(`TC-06 - ${actorKey}: Raise Requisition`, async ({ page }) => {
   await requisitionPage.navigateToRaiseRequisition();
 
   const requisitionData = {
+    is_project_owner: actor.requisition.is_project_owner,
+    overall_pic:     actor.overall_pic,
     project_code:   actor.requisition.project_code,
     project_label:  actor.requisition.project_label,
     project_title:  actor.project_title,
@@ -48,8 +51,11 @@ test(`TC-06 - ${actorKey}: Raise Requisition`, async ({ page }) => {
   await requisitionPage.uploadCSV(requisitionData);
   await requisitionPage.submitAndConfirm();
 
-  await requisitionPage.convertToWorkOrder(requisitionData);
-  await requisitionPage.navigateToWorkOrders();
-  await requisitionPage.issueWorkOrder(requisitionData);
+  const workOrderPage = new WorkOrderPage(page);
+  await workOrderPage.convertToWorkOrder(requisitionData.contract_title);
+  await workOrderPage.navigateToWorkOrders();
+  await workOrderPage.issueWorkOrder(requisitionData.contract_title);
+
+  await workOrderPage.acknowledgeWorkOrder(requisitionData.contract_title);
 });
 }

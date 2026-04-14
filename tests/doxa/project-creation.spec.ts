@@ -3,7 +3,7 @@ import { LoginPage } from "../../pages/login.page.spec";
 import { ProjectPage } from "../../pages/project.page.spec";
 import data from "../../data/data.json";
 
-const ACTOR_KEYS = ["subcon_01"] as const;
+const ACTOR_KEYS = ["project_owner", "main_con", "subcon_01"] as const;
 type ActorKey = (typeof ACTOR_KEYS)[number];
 
 for (const actorKey of ACTOR_KEYS) {

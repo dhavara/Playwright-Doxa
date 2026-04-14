@@ -2,6 +2,8 @@ import { Page } from "@playwright/test";
 import path from 'path';
 
 export interface RequisitionData {
+is_project_owner: boolean;
+overall_pic:     string;
 project_code:     string;
 project_label:    string;
 project_title:    string;
@@ -34,6 +36,7 @@ async navigateToRaiseRequisition() {
 async requisitionInfo(data: RequisitionData) {
     // Project — react-select searchable dropdown
     await this.page.locator('svg').first().click();
+    await this.page.waitForTimeout(400);
     await this.page.locator('#react-select-2-input').fill(data.project_code.toLowerCase());
     await this.page.waitForTimeout(600);
     await this.page.locator('#react-select-2-input').focus(); // ensure input has focus
@@ -42,6 +45,7 @@ async requisitionInfo(data: RequisitionData) {
 
     // Trade
     await this.page.getByRole('button', { name: 'Please Select Project Trade' }).click();
+    await this.page.waitForTimeout(600);
     await this.page.getByText(data.trade_label).click();
 
     // Contract Title
@@ -52,7 +56,11 @@ async requisitionInfo(data: RequisitionData) {
 
     // Person-in-Charge
     await this.page.locator('div').filter({ hasText: /^Please select Person-in-Charge \(Respondent\)$/ }).nth(3).click();
-    await this.page.locator('#react-select-3-option-1').click();
+    await this.page.waitForTimeout(400);
+    await this.page.locator('[id^="react-select-3-input"]').fill(data.overall_pic);
+    await this.page.waitForTimeout(400);
+    await this.page.locator('[id^="react-select-3-input"]').press('ArrowDown');
+    await this.page.locator('[id^="react-select-3-input"]').press('Enter');
 
     // Retention rates
     await this.page.getByRole('textbox', { name: '10%' }).fill(data.retention_main);
@@ -62,6 +70,13 @@ async requisitionInfo(data: RequisitionData) {
     await this.page.locator('svg').nth(2).click();
     await this.page.waitForTimeout(400);
     await this.page.getByText(data.vendor, { exact: true }).click();
+
+    // If not project owner, select the first Parent Work Order from the dropdown
+    if (!data.is_project_owner) {
+        await this.page.locator('svg').nth(3).click();
+        await this.page.waitForTimeout(400);
+        await this.page.locator('[id^="react-select"][id$="option-0"]').filter({ hasText: /.+/ }).first().click();
+    }
 }
 
 async uploadCSV(data: RequisitionData) {
@@ -74,45 +89,6 @@ async submitAndConfirm() {
     await this.page.getByRole('button', { name: 'Yes' }).click();
     await this.page.getByRole('button', { name: 'I Understand' }).click();
     await this.page.waitForLoadState('networkidle');
-}
-
-async convertToWorkOrder(data: RequisitionData) {
-  // Double-click the first matching row using the first gridcell
-  await this.page.getByRole('gridcell', { name: data.contract_title }).first().dblclick();
-
-  // Opens in a new tab — wait for it and switch to it
-  const newPage = await this.page.context().waitForEvent('page');
-  await newPage.waitForLoadState('networkidle');
-
-  // Click Convert to WO button
-  await newPage.getByRole('button', { name: 'Convert to WO' }).click();
-
-  // Confirm the pop-up
-  await newPage.getByRole('button', { name: 'Yes' }).click();
-  await newPage.waitForLoadState('networkidle');
-}
-
-async navigateToWorkOrders() {
-    await this.page.getByText('Orders').click();
-    await this.page.locator('a').filter({ hasText: 'Orders' }).click();
-    await this.page.getByRole('link', { name: 'WO List' }).click();
-    await this.page.waitForLoadState('networkidle');
-}
-
-async issueWorkOrder(data: RequisitionData) {
-// Double-click the first matching row using the first gridcell
-await this.page.getByRole('gridcell', { name: data.contract_title }).first().dblclick();
-
-// Opens in a new tab — wait for it and switch to it
-const newPage = await this.page.context().waitForEvent('page');
-await newPage.waitForLoadState('networkidle');
-
-// Click Convert to WO button
-await newPage.getByRole('button', { name: 'Issue' }).click();
-
-// Confirm the pop-up
-await this.page.getByRole('button', { name: 'I Understand' }).click();
-await newPage.waitForLoadState('networkidle');
 }
 
 }
