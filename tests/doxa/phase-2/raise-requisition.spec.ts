@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage2 } from '../../pages/login.page.spec';
-import { RequisitionPage } from '../../pages/requisition.page.spec';
-import data from '../../data/data.json';
-import { WorkOrderPage } from '../../pages/work-order.page.spec';
+import { LoginPage2 } from '../../../pages/login.page.spec';
+import { RequisitionPage } from '../../../pages/requisition.page.spec';
+import data from '../../../data/data.json';
+import { WorkOrderPage } from '../../../pages/work-order.page.spec';
 
 const ACTOR_KEYS = ["project_owner", "main_con", "subcon_01"] as const;
 type ActorKey = (typeof ACTOR_KEYS)[number];
@@ -16,7 +16,7 @@ for (const actorKey of ACTOR_KEYS) {
   }
 
 test(`TC-06 - ${actorKey}: Raise Requisition`, async ({ page }) => {
-  test.setTimeout(1200000);
+  test.setTimeout(120000);
 
   const loginPage = new LoginPage2(page);
   await loginPage.goto();
@@ -35,11 +35,6 @@ test(`TC-06 - ${actorKey}: Raise Requisition`, async ({ page }) => {
     csv_filename:   actor.requisition.csv_filename,
     trade:          actor.requisition.trade,
     trade_label:    actor.requisition.trade_label,
-    work_code:      actor.requisition.work_code,
-    description:    actor.requisition.description,
-    unit:           actor.requisition.unit,
-    quantity:       actor.requisition.quantity,
-    amount:         actor.requisition.amount,
     contract_title: actor.requisition.contract_title,
     contract_type:  actor.requisition.contract_type,
     retention_main: actor.requisition.retention_main,

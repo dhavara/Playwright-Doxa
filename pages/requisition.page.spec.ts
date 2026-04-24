@@ -10,11 +10,6 @@ project_title:    string;
 csv_filename:     string;
 trade:            string;
 trade_label:      string;
-work_code:        string;
-description:      string;
-unit:             string;
-quantity:         string;
-amount:           string;
 contract_title:   string;
 contract_type:    string;
 retention_main:   string;
@@ -31,7 +26,6 @@ async navigateToRaiseRequisition() {
     await this.page.getByRole('link', { name: 'Raise Requisition' }).click();
     await this.page.waitForLoadState('networkidle');
 }
-
 
 async requisitionInfo(data: RequisitionData) {
     // Project — react-select searchable dropdown
