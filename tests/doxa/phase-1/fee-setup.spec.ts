@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage5 } from "../../../pages/login.page.spec";
-import { FeeSetupPage } from "../../../pages/fee-setup-page.spec";
+import { FeeSetupPage } from "../../../pages/phase-1/fee-setup-page.spec";
 import data from "../../../data/data.json";
 
 const ACTOR_KEYS = ["doxa_admin"] as const;

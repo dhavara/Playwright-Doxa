@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { ProgressiveClaimPage } from "../../../pages/progressive-claim-page.spec";
+import { ProgressiveClaimPage } from "../../../pages/phase-3/progressive-claim-page.spec";
 import { LoginPage2 } from "../../../pages/login.page.spec";
 import data from "../../../data/data.json";
 

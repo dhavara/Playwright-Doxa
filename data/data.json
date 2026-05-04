@@ -1,5 +1,5 @@
 {
-  "dtf_project_code": "DTF-DHV-AUTO-003",
+  "dtf_project_code": "DTF-DHV-AUTO-004",
 
   "doxa_admin": {
     "run_test": true,
@@ -23,14 +23,15 @@
 
   "project_owner": {
     "run_test": true,
+    "jtc_setup": false,
     "credentials": {
       "email": "developer_admin@mailsac.com",
       "password": "12345678"
     },
-    "project_code": "DTF-DHV-AUTO-003-PO",
-    "project_title": "DTF DHV Auto Project - Owner 003",
-    "start_date": "2026-04-21",
-    "end_date": "2028-04-21",
+    "project_code": "DTF-DHV-AUTO-004-PO",
+    "project_title": "DTF DHV Auto Project - Owner 004",
+    "start_date": "2026-04-28",
+    "end_date": "2028-04-28",
     "currency": "sgd",
     "currency_label": "Singapore Dollar (SGD)",
     "overall_budget": "1000000",
@@ -41,23 +42,23 @@
     "team_members_count": 8,
     "requisition": {
       "is_project_owner": true,
-      "project_code": "DTF-DHV-AUTO-003-PO",
-      "project_label": "DTF-DHV-AUTO-003-PO",
+      "project_code": "DTF-DHV-AUTO-004-PO",
+      "project_label": "DTF-DHV-AUTO-004-PO",
       "csv_filename": "Project Owner - Maincon 1 1.csv",
       "trade": "BW",
       "trade_label": "BW (Building Work)",
-      "contract_title": "WR-DHV-Auto-003",
+      "contract_title": "WR-DHV-Auto-004",
       "contract_type": "LUMP_SUM",
       "retention_main": "0",
       "retention_sub": "0",
       "vendor": "MAINCON01 (MAINCON PTE LTD)"
     },
     "claim": {
-      "contract_title": "WR-DHV-Auto-003",
-      "pr_reference": "PR-DTF-DHV-AUTO-003-PO",
-      "invoice_date": "2026-04-24",
-      "Invoice_number": "INV-DTF-DHV-AUTO-003-PO-May",
-      "invoice_self_billing": "INV-DTF-DHV-AUTO-003-May"
+      "contract_title": "WR-DHV-Auto-004",
+      "pr_reference": "PR-DTF-DHV-AUTO-004-PO",
+      "invoice_date": "2026-04-28",
+      "Invoice_number": "INV-DTF-DHV-AUTO-004-PO-May",
+      "invoice_self_billing": "INV-DTF-DHV-AUTO-004-May"
     }
   },
 
@@ -67,10 +68,10 @@
       "email": "maincon_admin@mailsac.com",
       "password": "12345678"
     },
-    "project_code": "DTF-DHV-AUTO-003-MC",
-    "project_title": "DTF DHV Auto Project - MainCon 003",
-    "start_date": "2026-04-21",
-    "end_date": "2028-04-21",
+    "project_code": "DTF-DHV-AUTO-004-MC",
+    "project_title": "DTF DHV Auto Project - MainCon 004",
+    "start_date": "2026-04-28",
+    "end_date": "2028-04-28",
     "currency": "sgd",
     "currency_label": "Singapore Dollar (SGD)",
     "overall_budget": "1000000",
@@ -81,25 +82,25 @@
     "team_members_count": 2,
     "requisition": {
       "is_project_owner": false,
-      "project_code": "DTF-DHV-AUTO-003-MC",
-      "project_label": "DTF-DHV-AUTO-003-MC",
+      "project_code": "DTF-DHV-AUTO-004-MC",
+      "project_label": "DTF-DHV-AUTO-004-MC",
       "csv_filename": "Main Con - Subcon 1 1.csv",
       "trade": "BW",
       "trade_label": "BW (BW)",
-      "contract_title": "WR-DHV-Auto-003",
+      "contract_title": "WR-DHV-Auto-004",
       "contract_type": "LUMP_SUM",
       "retention_main": "0",
       "retention_sub": "0",
       "vendor": "SUBCON_01 (SUBCON 01 PTE LTD)"
     },
     "claim": {
-      "contract_title": "WR-DHV-Auto-003",
-      "pc_reference": "PC-DTF-DHV-AUTO-003-MC",
-      "pr_reference": "PR-DTF-DHV-AUTO-003-MC",
+      "contract_title": "WR-DHV-Auto-004",
+      "pc_reference": "PC-DTF-DHV-AUTO-004-MC",
+      "pr_reference": "PR-DTF-DHV-AUTO-004-MC",
       "claim_month": "May",
       "claim_amount": "200",
-      "invoice_date": "2026-04-24",
-      "Invoice_number": "INV-DTF-DHV-AUTO-003-MC-May"
+      "invoice_date": "2026-04-28",
+      "Invoice_number": "INV-DTF-DHV-AUTO-004-MC-May"
     }
   },
 
@@ -109,10 +110,10 @@
       "email": "subcon_01@mailsac.com",
       "password": "12345678"
     },
-    "project_code": "DTF-DHV-AUTO-003-SC1",
-    "project_title": "DTF DHV Auto Project - Subcon 01 003",
-    "start_date": "2026-04-21",
-    "end_date": "2028-04-21",
+    "project_code": "DTF-DHV-AUTO-004-SC1",
+    "project_title": "DTF DHV Auto Project - Subcon 01 004",
+    "start_date": "2026-04-28",
+    "end_date": "2028-04-28",
     "currency": "SGD",
     "currency_label": "Singapore Dollar (SGD)",
     "overall_budget": "1000000",
@@ -123,25 +124,25 @@
     "team_members_count": 1,
     "requisition": {
       "is_project_owner": false,
-      "project_code": "DTF-DHV-AUTO-003-SC1",
-      "project_label": "DTF-DHV-AUTO-003-SC1",
+      "project_code": "DTF-DHV-AUTO-004-SC1",
+      "project_label": "DTF-DHV-AUTO-004-SC1",
       "csv_filename": "Subcon 1 - Subcon 2.csv",
       "trade": "BW",
       "trade_label": "BW (BW)",
-      "contract_title": "WR-DHV-Auto-003",
+      "contract_title": "WR-DHV-Auto-004",
       "contract_type": "LUMP_SUM",
       "retention_main": "0",
       "retention_sub": "0",
       "vendor": "SUBCON 02 (SUBCON 02 PTE LTD)"
     },
     "claim": {
-      "contract_title": "WR-DHV-Auto-003",
-      "pc_reference": "PC-DTF-DHV-AUTO-003-SC1",
-      "pr_reference": "PR-DTF-DHV-AUTO-003-SC1",
+      "contract_title": "WR-DHV-Auto-004",
+      "pc_reference": "PC-DTF-DHV-AUTO-004-SC1",
+      "pr_reference": "PR-DTF-DHV-AUTO-004-SC1",
       "claim_month": "May",
       "claim_amount": "200",
-      "invoice_date": "2026-04-22",
-      "Invoice_number": "INV-DTF-DHV-AUTO-003-SC1-May"
+      "invoice_date": "2026-04-28",
+      "Invoice_number": "INV-DTF-DHV-AUTO-004-SC1-May"
     }
   }
 }

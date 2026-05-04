@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage2 } from '../../../pages/login.page.spec';
-import { RequisitionPage } from '../../../pages/requisition.page.spec';
+import { RequisitionPage } from '../../../pages/phase-2/requisition.page.spec';
 import data from '../../../data/data.json';
-import { WorkOrderPage } from '../../../pages/work-order.page.spec';
+import { WorkOrderPage } from '../../../pages/phase-2/work-order.page.spec';
 
 const ACTOR_KEYS = ["project_owner", "main_con", "subcon_01"] as const;
 type ActorKey = (typeof ACTOR_KEYS)[number];

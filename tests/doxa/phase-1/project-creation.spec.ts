@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../../../pages/login.page.spec";
-import { ProjectPage } from "../../../pages/project.page.spec";
+import { ProjectPage } from "../../../pages/phase-1/project.page.spec";
 import data from "../../../data/data.json";
 
 const ACTOR_KEYS = ["project_owner", "main_con", "subcon_01"] as const;

@@ -1,30 +1,43 @@
 import { test } from "@playwright/test";
-import { CreateSelfBillingPage } from "../../../pages/create-self-billing-page.spec";
-import { LoginPage3 } from "../../../pages/login.page.spec";
+import { CreateSelfBillingPage } from "../../../pages/phase-4/create-self-billing-page.spec";
+import { LoginPage3, LoginPage2 } from "../../../pages/login.page.spec";
+import { InvoicePagePO } from "../../../pages/phase-4/invoice-page-project-owner.spec";
 import data from "../../../data/data.json";
 
-const ACTOR_KEYS = ["project_owner"] as const;
-type ActorKey = (typeof ACTOR_KEYS)[number];
+test(`TC-10 - project_owner: Create Self-Billing Invoice`, async ({ page }) => {
+  test.skip(!data.project_owner.jtc_setup, 'jtc_setup is false');
+  test.setTimeout(120000);
 
-for (const actorKey of ACTOR_KEYS) {
-  const actor = data[actorKey];
+  const loginPage = new LoginPage3(page);
+  await loginPage.goto();
+  await loginPage.login(data.project_owner.credentials.email, data.project_owner.credentials.password);
+  await loginPage.waitForDashboard();
 
-  if (!actor.run_test) {
-    test.skip(`TC-11 - ${actorKey}: Create Self-Billing Invoice`, () => {});
-    continue;
-  }
+  const createSelfBillingPage = new CreateSelfBillingPage(page);
+  await createSelfBillingPage.createSelfBilling(data.project_owner.claim.invoice_self_billing, data.project_owner.requisition.vendor, data.project_owner.project_title);
+  await createSelfBillingPage.submitInvoice();
+});
 
-  test(`TC-11 - ${actorKey}: Create Self-Billing Invoice`, async ({ page }) => {
-    test.setTimeout(120000);
+test(`TC-11: Convert to Invoice`, async ({ page }) => {
+  test.skip(data.project_owner.jtc_setup, 'jtc_setup is true');
+  test.setTimeout(300000);
 
-    const loginPage = new LoginPage3(page);
-    await loginPage.goto();
-    await loginPage.login(actor.credentials.email, actor.credentials.password);
-    await loginPage.waitForDashboard();
+  // main_con: convert to invoice
+  const loginPageMC = new LoginPage2(page);
+  await loginPageMC.goto();
+  await loginPageMC.login(data.main_con.credentials.email, data.main_con.credentials.password);
+  await loginPageMC.waitForDashboard();
 
-    const createSelfBillingPage = new CreateSelfBillingPage(page);
-    await createSelfBillingPage.createSelfBilling(actor.claim.invoice_self_billing, actor.requisition.vendor, actor.project_title);
-    await createSelfBillingPage.submitInvoice();
-  });
+  const invoicePageMC = new InvoicePagePO(page);
+  await invoicePageMC.navigateToReceipts();
+  await invoicePageMC.invoiceConversion(data.main_con.claim.contract_title, data.main_con.claim.invoice_date, data.main_con.claim.Invoice_number);
 
-}
+  // project_owner: approve invoice
+  const loginPagePO = new LoginPage2(page);
+  await loginPagePO.goto();
+  await loginPagePO.login(data.project_owner.credentials.email, data.project_owner.credentials.password);
+  await loginPagePO.waitForDashboard();
+
+  const invoicePagePO = new InvoicePagePO(page);
+  await invoicePagePO.approveInvoice(data.project_owner.project_title);
+});

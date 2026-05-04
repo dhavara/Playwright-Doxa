@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { AcknowledgeResponseIssuePage } from "../../../pages/acknowledge-response-issue-page.spec";
+import { AcknowledgeResponseIssuePage } from "../../../pages/phase-3/acknowledge-response-issue-page.spec";
 import { LoginPage2 } from "../../../pages/login.page.spec";
 import data from "../../../data/data.json";
 

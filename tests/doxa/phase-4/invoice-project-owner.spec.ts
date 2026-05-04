@@ -1,9 +1,9 @@
 import { test } from "@playwright/test";
-import { InvoicePage } from "../../../pages/phase-4/invoice-page.spec";
+import { InvoicePagePO } from "../../../pages/phase-4/invoice-page-project-owner.spec";
 import { LoginPage2 } from "../../../pages/login.page.spec";
 import data from "../../../data/data.json";
 
-const ACTOR_KEYS = ["subcon_01", "main_con"] as const;
+const ACTOR_KEYS = ["main_con", "project_owner"] as const;
 type ActorKey = (typeof ACTOR_KEYS)[number];
 
 for (const actorKey of ACTOR_KEYS) {
@@ -22,13 +22,13 @@ for (const actorKey of ACTOR_KEYS) {
     await loginPage.login(actor.credentials.email, actor.credentials.password);
     await loginPage.waitForDashboard();
 
-    const invoicePage = new InvoicePage(page);
+    const invoicePage = new InvoicePagePO(page);
 
-    if (actorKey === "subcon_01") {
+    if (actorKey === "main_con") {
       await invoicePage.navigateToReceipts();
-      await invoicePage.invoiceConversion(actor.claim.contract_title, actor.claim.invoice_date);
-    } else if (actorKey === "main_con") {
-      await invoicePage.approveInvoice(data.main_con.project_title);
+      await invoicePage.invoiceConversion(actor.claim.contract_title, actor.claim.invoice_date, actor.claim.Invoice_number);
+    } else if (actorKey === "project_owner") {
+      await invoicePage.approveInvoice(actor.project_title);
     }
   });
 }

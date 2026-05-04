@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { ValidationPage } from "../../../pages/validation-page.spec";
+import { ValidationPage } from "../../../pages/phase-3/validation-page.spec";
 import { LoginPage2 } from "../../../pages/login.page.spec";
 import data from "../../../data/data.json";
 

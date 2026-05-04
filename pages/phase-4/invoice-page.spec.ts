@@ -44,13 +44,15 @@ export class InvoicePage {
     await newPage.waitForLoadState("networkidle");
 
     // Wait for the invoice dialog/form to appear (client-side modal, not a page navigation)
+    await newPage.waitForTimeout(800);
     await newPage.waitForSelector('input[name="invoiceDate"][type="date"]');
+    await newPage.waitForTimeout(800);
 
     // Fill in invoice date and issue
     await newPage.locator('input[name="invoiceDate"][type="date"]').click();
     await newPage.locator('input[name="invoiceDate"][type="date"]').fill(invoiceDate);
     await newPage.locator('input[name="invoiceDate"][type="date"]').press('Enter');
-    await newPage.waitForTimeout(500);
+    await newPage.waitForTimeout(800);
     await newPage.getByRole('button', { name: 'Issue' }).click();
     await newPage.waitForLoadState("networkidle");
   }
@@ -61,11 +63,21 @@ export class InvoicePage {
     );
     await this.page.waitForLoadState("networkidle");
 
-    // Hover over the grid and wheel scroll horizontally to reveal the Project Title column
-    await this.page.locator('.ag-center-cols-clipper').hover();
-    await this.page.waitForTimeout(500);
-    await this.page.mouse.wheel(10000, 0);
-    await this.page.waitForTimeout(600);
+    // Scroll the AG Grid all the way to the right to reveal the Project Title column
+    await this.page.waitForSelector('.ag-row', { timeout: 15000 });
+    await this.page.evaluate(() => {
+      [
+        '.ag-body-horizontal-scroll-viewport',
+        '.ag-center-cols-clipper > div',
+        '.ag-center-cols-container',
+      ].forEach(sel => {
+        const el = document.querySelector(sel) as HTMLElement;
+        if (el) {
+          el.scrollLeft = 99999;
+          el.dispatchEvent(new Event('scroll', { bubbles: true }));
+        }
+      });
+    });
     await this.page.getByRole("gridcell", { name: projectTitle }).first().dblclick();
 
     const newPage = await this.page.context().waitForEvent("page");
