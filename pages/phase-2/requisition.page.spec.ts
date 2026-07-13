@@ -74,7 +74,7 @@ async requisitionInfo(data: RequisitionData) {
 }
 
 async uploadCSV(data: RequisitionData) {
-    const filePath = path.join(__dirname, '../data', data.csv_filename);
+    const filePath = path.join(__dirname, '../../data', data.csv_filename);
     await this.page.setInputFiles('input[type="file"]', filePath);
 }
 

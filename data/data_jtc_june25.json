@@ -1,0 +1,715 @@
+{
+  "dtf_project_code": "DTF-JTC-2025-06",
+
+  "doxa_admin": {
+    "run_test": true,
+    "credentials": {
+      "email": "uat.doxaadmin@mailsac.com",
+      "password": "0An2k\"h&08$1pr"
+    },
+    "financial_institution": "abc dtf",
+    "financial_institution_label": "ABC DTF",
+    "client_id": "B2BWS_4_9_4477",
+    "buyer_id": "11111111",
+    "proxypool_id": "DemoPool1",
+    "cif_number": "0000000000600093578",
+    "rsid1_dev_main": "CNARMAIDEV001",
+    "rsid2_main_sub": "CNPFMAISUB002",
+    "platform_fee": "0",
+    "dtf_fee_vc": {
+      "tier_1_3": "H"
+    }
+  },
+
+  "va_checker": {
+    "project_owner_label": "DEVELOPER PTE LTD (E998877)",
+    "wr_number": "",
+    "wr_label": "",
+    "claim_month": "2025-06"
+  },
+
+  "project_owner": {
+    "run_test": true,
+    "jtc_setup": true,
+    "credentials": {
+      "email": "developer_admin@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-PO",
+    "project_title": "DTF JTC Project - Owner June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "sgd",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "Building",
+    "project_description": "Automated test project for Project Owner using Playwright",
+    "overall_pic": "Developer Admin",
+    "project_admin": "Developer Admin",
+    "team_members_count": 18,
+    "requisition": {
+      "is_project_owner": true,
+      "project_code": "DTF-JTC-2025-06-PO",
+      "project_label": "DTF-JTC-2025-06-PO",
+      "csv_filename": "Project Owner - Maincon 1.csv",
+      "trade": "BW",
+      "trade_label": "BW (Building Work)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["MAINCON01 (MAINCON PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pr_reference": "PR-DTF-JTC-2025-06-PO",
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-PO-June",
+      "invoice_self_billing": "INV-DTF-JTC-2025-06-June"
+    }
+  },
+
+  "main_con": {
+    "run_test": true,
+    "credentials": {
+      "email": "maincon_admin@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-MC",
+    "project_title": "DTF JTC Project - MainCon June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "sgd",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Maincon",
+    "project_description": "Automated test project for Main Contractor using Playwright",
+    "overall_pic": "Maincon Admin",
+    "project_admin": "Maincon Admin",
+    "team_members_count": 2,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-MC",
+      "project_label": "DTF-JTC-2025-06-MC",
+      "csv_filename": "Main Con - Subcon 1.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON_01 (SUBCON 01 PTE LTD)", "SUBCON_02 (SUBCON 02 PTE LTD)", "SUBCON_03 (SUBCON 03 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-MC",
+      "pr_reference": "PR-DTF-JTC-2025-06-MC",
+      "claim_month": "June",
+      "claim_amount": "60000",
+      "invoice_amount": 50140,
+      "expected_va": 16044.8,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-MC-June"
+    }
+  },
+
+  "subcon_01": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_01@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC1",
+    "project_title": "DTF JTC Project - Subcon 01 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 01",
+    "project_description": "Automated test project for Subcontractor 01",
+    "overall_pic": "SUBCON 01 Admin",
+    "project_admin": "SUBCON 01 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC1",
+      "project_label": "DTF-JTC-2025-06-SC1",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 06 (SUBCON 06 PTE LTD)", "SUBCON 07 (SUBCON 07 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC1",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC1",
+      "claim_month": "June",
+      "claim_amount": "10000",
+      "invoice_amount": 9047,
+      "expected_va": 0,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC1-June"
+    }
+  },
+
+  "subcon_02": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_02@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC2",
+    "project_title": "DTF JTC Project - Subcon 02 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 02",
+    "project_description": "Automated test project for Subcontractor 02",
+    "overall_pic": "SUBCON 02 Admin",
+    "project_admin": "SUBCON 02 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC2",
+      "project_label": "DTF-JTC-2025-06-SC2",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 08 (SUBCON 08 PTE LTD)", "SUBCON 09 (SUBCON 09 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC2",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC2",
+      "claim_month": "June",
+      "claim_amount": "30000",
+      "invoice_amount": 15042,
+      "expected_va": 37.1,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC2-June"
+    }
+  },
+
+  "subcon_03": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_03@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC3",
+    "project_title": "DTF JTC Project - Subcon 03 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 03",
+    "project_description": "Automated test project for Subcontractor 03",
+    "overall_pic": "SUBCON 03 Admin",
+    "project_admin": "SUBCON 03 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC3",
+      "project_label": "DTF-JTC-2025-06-SC3",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 11 (SUBCON 11 PTE LTD)", "SUBCON 12 (SUBCON 12 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC3",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC3",
+      "claim_month": "June",
+      "claim_amount": "20000",
+      "invoice_amount": 10006.2,
+      "expected_va": 7085,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC3-June"
+    }
+  },
+
+  "subcon_06": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_06@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC6",
+    "project_title": "DTF JTC Project - Subcon 06 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 06",
+    "project_description": "Automated test project for Subcontractor 06",
+    "overall_pic": "SUBCON 06 Admin",
+    "project_admin": "SUBCON 06 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC6",
+      "project_label": "DTF-JTC-2025-06-SC6",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 13 (SUBCON 13 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC6",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC6",
+      "claim_month": "June",
+      "claim_amount": "9000",
+      "invoice_amount": 7085,
+      "expected_va": 0,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC6-June"
+    }
+  },
+
+  "subcon_07": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_07@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC7",
+    "project_title": "DTF JTC Project - Subcon 07 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 07",
+    "project_description": "Automated test project for Subcontractor 07",
+    "overall_pic": "SUBCON 07 Admin",
+    "project_admin": "SUBCON 07 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC7",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC7",
+      "claim_month": "June",
+      "claim_amount": "2000",
+      "invoice_amount": 2180,
+      "expected_va": 2128.71,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC7-June"
+    }
+  },
+
+  "subcon_08": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_08@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC8",
+    "project_title": "DTF JTC Project - Subcon 08 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 08",
+    "project_description": "Automated test project for Subcontractor 08",
+    "overall_pic": "SUBCON 08 Admin",
+    "project_admin": "SUBCON 08 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC8",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC8",
+      "claim_month": "June",
+      "claim_amount": "7000",
+      "invoice_amount": 7000,
+      "expected_va": 7000,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC8-June"
+    }
+  },
+
+  "subcon_09": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_09@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC9",
+    "project_title": "DTF JTC Project - Subcon 09 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 09",
+    "project_description": "Automated test project for Subcontractor 09",
+    "overall_pic": "SUBCON 09 Admin",
+    "project_admin": "SUBCON 09 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC9",
+      "project_label": "DTF-JTC-2025-06-SC9",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 14 (SUBCON 14 PTE LTD)", "SUBCON 15 (SUBCON 15 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC9",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC9",
+      "claim_month": "June",
+      "claim_amount": "16000",
+      "invoice_amount": 8004.9,
+      "expected_va": 0,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC9-June"
+    }
+  },
+
+  "subcon_11": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_11@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC11",
+    "project_title": "DTF JTC Project - Subcon 11 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 11",
+    "project_description": "Automated test project for Subcontractor 11",
+    "overall_pic": "SUBCON 11 Admin",
+    "project_admin": "SUBCON 11 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC11",
+      "project_label": "DTF-JTC-2025-06-SC11",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 16 (SUBCON 16 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC11",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC11",
+      "claim_month": "June",
+      "claim_amount": "10000",
+      "invoice_amount": 2016.5,
+      "expected_va": 0,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC11-June"
+    }
+  },
+
+  "subcon_12": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_12@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC12",
+    "project_title": "DTF JTC Project - Subcon 12 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 12",
+    "project_description": "Automated test project for Subcontractor 12",
+    "overall_pic": "SUBCON 12 Admin",
+    "project_admin": "SUBCON 12 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC12",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC12",
+      "claim_month": "June",
+      "claim_amount": "1000",
+      "invoice_amount": 904.7,
+      "expected_va": 904.7,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC12-June"
+    }
+  },
+
+  "subcon_13": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_13@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC13",
+    "project_title": "DTF JTC Project - Subcon 13 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 13",
+    "project_description": "Automated test project for Subcontractor 13",
+    "overall_pic": "SUBCON 13 Admin",
+    "project_admin": "SUBCON 13 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC13",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC13",
+      "claim_month": "June",
+      "claim_amount": "10000",
+      "invoice_amount": 10000,
+      "expected_va": 6918.29,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC13-June"
+    }
+  },
+
+  "subcon_14": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_14@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC14",
+    "project_title": "DTF JTC Project - Subcon 14 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 14",
+    "project_description": "Automated test project for Subcontractor 14",
+    "overall_pic": "SUBCON 14 Admin",
+    "project_admin": "SUBCON 14 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC14",
+      "project_label": "DTF-JTC-2025-06-SC14",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 17 (SUBCON 17 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC14",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC14",
+      "claim_month": "June",
+      "claim_amount": "4000",
+      "invoice_amount": 4360,
+      "expected_va": 0,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC14-June"
+    }
+  },
+
+  "subcon_15": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_15@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC15",
+    "project_title": "DTF JTC Project - Subcon 15 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 15",
+    "project_description": "Automated test project for Subcontractor 15",
+    "overall_pic": "SUBCON 15 Admin",
+    "project_admin": "SUBCON 15 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC15",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC15",
+      "claim_month": "June",
+      "claim_amount": "5000",
+      "invoice_amount": 5450,
+      "expected_va": 4447.17,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC15-June"
+    }
+  },
+
+  "subcon_16": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_16@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC16",
+    "project_title": "DTF JTC Project - Subcon 16 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 16",
+    "project_description": "Automated test project for Subcontractor 16",
+    "overall_pic": "SUBCON 16 Admin",
+    "project_admin": "SUBCON 16 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-JTC-2025-06-SC16",
+      "project_label": "DTF-JTC-2025-06-SC16",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-JTC-June25",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 18 (SUBCON 18 PTE LTD)", "SUBCON 19 (SUBCON 19 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC16",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC16",
+      "claim_month": "June",
+      "claim_amount": "4000",
+      "invoice_amount": 4000,
+      "expected_va": 0,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC16-June"
+    }
+  },
+
+  "subcon_17": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_17@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC17",
+    "project_title": "DTF JTC Project - Subcon 17 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 17",
+    "project_description": "Automated test project for Subcontractor 17",
+    "overall_pic": "SUBCON 17 Admin",
+    "project_admin": "SUBCON 17 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC17",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC17",
+      "claim_month": "June",
+      "claim_amount": "5000",
+      "invoice_amount": 5000,
+      "expected_va": 3557.73,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC17-June"
+    }
+  },
+
+  "subcon_18": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_18@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC18",
+    "project_title": "DTF JTC Project - Subcon 18 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 18",
+    "project_description": "Automated test project for Subcontractor 18",
+    "overall_pic": "SUBCON 18 Admin",
+    "project_admin": "SUBCON 18 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC18",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC18",
+      "claim_month": "June",
+      "claim_amount": "3000",
+      "invoice_amount": 3270,
+      "expected_va": 1251.22,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC18-June"
+    }
+  },
+
+  "subcon_19": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_19@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-JTC-2025-06-SC19",
+    "project_title": "DTF JTC Project - Subcon 19 June25",
+    "start_date": "2025-06-01",
+    "end_date": "2027-06-01",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 19",
+    "project_description": "Automated test project for Subcontractor 19",
+    "overall_pic": "SUBCON 19 Admin",
+    "project_admin": "SUBCON 19 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-JTC-June25",
+      "pc_reference": "PC-DTF-JTC-2025-06-SC19",
+      "pr_reference": "PR-DTF-JTC-2025-06-SC19",
+      "claim_month": "June",
+      "claim_amount": "2000",
+      "invoice_amount": 2000,
+      "expected_va": 765.28,
+      "invoice_date": "2025-06-20",
+      "Invoice_number": "INV-DTF-JTC-2025-06-SC19-June"
+    }
+  }
+}

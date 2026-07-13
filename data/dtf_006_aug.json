@@ -1,0 +1,453 @@
+{
+  "dtf_project_code": "DTF-DHV-AUTO-006",
+
+  "doxa_admin": {
+    "run_test": true,
+    "credentials": {
+      "email": "uat.doxaadmin@mailsac.com",
+      "password": "0An2k\"h&08$1pr"
+    },
+    "financial_institution": "abc dtf",
+    "financial_institution_label": "ABC DTF",
+    "client_id": "B2BWS_4_9_4477",
+    "buyer_id": "11111111",
+    "proxypool_id": "DemoPool1",
+    "cif_number": "0000000000600093578",
+    "rsid1_dev_main": "CNARMAIDEV001",
+    "rsid2_main_sub": "CNPFMAISUB002",
+    "platform_fee": "0",
+    "dtf_fee_vc": {
+      "tier_1_3": "H"
+    }
+  },
+
+  "va_checker": {
+    "project_owner_label": "DEVELOPER PTE LTD (E998877)",
+    "wr_number": "WR00000251",
+    "wr_label": "WR00000251 (WR-DTF-DHV-006-Dev to Maincon)",
+    "claim_month": "2026-08"
+  },
+
+  "project_owner": {
+    "run_test": true,
+    "jtc_setup": true,
+    "credentials": {
+      "email": "developer_admin@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-PO",
+    "project_title": "DTF DHV Auto Project - Owner 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "sgd",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "Building",
+    "project_description": "Automated test project for Project Owner using Playwright",
+    "overall_pic": "Developer Admin",
+    "project_admin": "Developer Admin",
+    "team_members_count": 12,
+    "requisition": {
+      "is_project_owner": true,
+      "project_code": "DTF-DHV-AUTO-006-PO",
+      "project_label": "DTF-DHV-AUTO-006-PO",
+      "csv_filename": "Project Owner - Maincon 1.csv",
+      "trade": "BW",
+      "trade_label": "BW (Building Work)",
+      "contract_title": "WR-DHV-Auto-006",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["MAINCON01 (MAINCON PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-PO",
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-PO-August",
+      "invoice_self_billing": "INV-DTF-DHV-AUTO-006-August"
+    }
+  },
+
+  "main_con": {
+    "run_test": true,
+    "credentials": {
+      "email": "maincon_admin@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-MC",
+    "project_title": "DTF DHV Auto Project - MainCon 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "sgd",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Maincon",
+    "project_description": "Automated test project for Main Contractor using Playwright",
+    "overall_pic": "Maincon Admin",
+    "project_admin": "Maincon Admin",
+    "team_members_count": 2,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-DHV-AUTO-006-MC",
+      "project_label": "DTF-DHV-AUTO-006-MC",
+      "csv_filename": "Main Con - Subcon 1.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-DHV-Auto-006",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON_01 (SUBCON 01 PTE LTD)", "SUBCON_02 (SUBCON 02 PTE LTD)", "SUBCON_03 (SUBCON 03 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-MC",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-MC",
+      "claim_month": "August",
+      "claim_amount": "55000",
+      "expected_va": 30000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-MC-August"
+    }
+  },
+
+  "subcon_01": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_01@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC1",
+    "project_title": "DTF DHV Auto Project - Subcon 01 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 01",
+    "project_description": "Automated test project for Subcontractor 01",
+    "overall_pic": "SUBCON 01 Admin",
+    "project_admin": "SUBCON 01 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-DHV-AUTO-006-SC1",
+      "project_label": "DTF-DHV-AUTO-006-SC1",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-DHV-Auto-006",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 06 (SUBCON 06 PTE LTD)", "SUBCON 07 (SUBCON 07 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC1",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC1",
+      "claim_month": "August",
+      "claim_amount": "4000",
+      "expected_va": 0,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC1-August"
+    }
+  },
+
+  "subcon_02": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_02@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC2",
+    "project_title": "DTF DHV Auto Project - Subcon 02 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 02",
+    "project_description": "Automated test project for Subcontractor 02",
+    "overall_pic": "SUBCON 02 Admin",
+    "project_admin": "SUBCON 02 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-DHV-AUTO-006-SC2",
+      "project_label": "DTF-DHV-AUTO-006-SC2",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-DHV-Auto-006",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 08 (SUBCON 08 PTE LTD)", "SUBCON 09 (SUBCON 09 PTE LTD)", "SUBCON 10 (SUBCON 10 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC2",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC2",
+      "claim_month": "August",
+      "claim_amount": "12000",
+      "expected_va": 2000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC2-August"
+    }
+  },
+
+  "subcon_03": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_03@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC3",
+    "project_title": "DTF DHV Auto Project - Subcon 03 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 03",
+    "project_description": "Automated test project for Subcontractor 03",
+    "overall_pic": "SUBCON 03 Admin",
+    "project_admin": "SUBCON 03 Admin",
+    "team_members_count": 1,
+    "requisition": {
+      "is_project_owner": false,
+      "project_code": "DTF-DHV-AUTO-006-SC3",
+      "project_label": "DTF-DHV-AUTO-006-SC3",
+      "csv_filename": "Subcon 1 - Subcon 2.csv",
+      "trade": "BW",
+      "trade_label": "BW (BW)",
+      "contract_title": "WR-DHV-Auto-006",
+      "contract_type": "LUMP_SUM",
+      "retention_main": "0",
+      "retention_sub": "0",
+      "vendors": ["SUBCON 11 (SUBCON 11 PTE LTD)", "SUBCON 12 (SUBCON 12 PTE LTD)"]
+    },
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC3",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC3",
+      "claim_month": "August",
+      "claim_amount": "9000",
+      "expected_va": 0,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC3-August"
+    }
+  },
+
+  "subcon_06": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_06@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC6",
+    "project_title": "DTF DHV Auto Project - Subcon 06 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 06",
+    "project_description": "Automated test project for Subcontractor 06",
+    "overall_pic": "SUBCON 06 Admin",
+    "project_admin": "SUBCON 06 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC6",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC6",
+      "claim_month": "August",
+      "claim_amount": "3000",
+      "expected_va": 3000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC6-August"
+    }
+  },
+
+  "subcon_07": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_07@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC7",
+    "project_title": "DTF DHV Auto Project - Subcon 07 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 07",
+    "project_description": "Automated test project for Subcontractor 07",
+    "overall_pic": "SUBCON 07 Admin",
+    "project_admin": "SUBCON 07 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC7",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC7",
+      "claim_month": "August",
+      "claim_amount": "3000",
+      "expected_va": 3000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC7-August"
+    }
+  },
+
+  "subcon_08": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_08@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC8",
+    "project_title": "DTF DHV Auto Project - Subcon 08 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 08",
+    "project_description": "Automated test project for Subcontractor 08",
+    "overall_pic": "SUBCON 08 Admin",
+    "project_admin": "SUBCON 08 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC8",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC8",
+      "claim_month": "August",
+      "claim_amount": "3000",
+      "expected_va": 3000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC8-August"
+    }
+  },
+
+  "subcon_09": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_09@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC9",
+    "project_title": "DTF DHV Auto Project - Subcon 09 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 09",
+    "project_description": "Automated test project for Subcontractor 09",
+    "overall_pic": "SUBCON 09 Admin",
+    "project_admin": "SUBCON 09 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC9",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC9",
+      "claim_month": "August",
+      "claim_amount": "4000",
+      "expected_va": 4000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC9-August"
+    }
+  },
+
+  "subcon_10": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_10@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC10",
+    "project_title": "DTF DHV Auto Project - Subcon 10 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 10",
+    "project_description": "Automated test project for Subcontractor 10",
+    "overall_pic": "SUBCON 10 Admin",
+    "project_admin": "SUBCON 10 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC10",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC10",
+      "claim_month": "August",
+      "claim_amount": "3000",
+      "expected_va": 3000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC10-August"
+    }
+  },
+
+  "subcon_11": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_11@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC11",
+    "project_title": "DTF DHV Auto Project - Subcon 11 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 11",
+    "project_description": "Automated test project for Subcontractor 11",
+    "overall_pic": "SUBCON 11 Admin",
+    "project_admin": "SUBCON 11 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC11",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC11",
+      "claim_month": "August",
+      "claim_amount": "5000",
+      "expected_va": 5000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC11-August"
+    }
+  },
+
+  "subcon_12": {
+    "run_test": true,
+    "credentials": {
+      "email": "subcon_12@mailsac.com",
+      "password": "12345678"
+    },
+    "project_code": "DTF-DHV-AUTO-006-SC12",
+    "project_title": "DTF DHV Auto Project - Subcon 12 006",
+    "start_date": "2026-06-15",
+    "end_date": "2028-06-15",
+    "currency": "SGD",
+    "currency_label": "Singapore Dollar (SGD)",
+    "overall_budget": "1000000",
+    "project_address": "HQ Subcon 12",
+    "project_description": "Automated test project for Subcontractor 12",
+    "overall_pic": "SUBCON 12 Admin",
+    "project_admin": "SUBCON 12 Admin",
+    "team_members_count": 1,
+    "claim": {
+      "contract_title": "WR-DHV-Auto-006",
+      "pc_reference": "PC-DTF-DHV-AUTO-006-SC12",
+      "pr_reference": "PR-DTF-DHV-AUTO-006-SC12",
+      "claim_month": "August",
+      "claim_amount": "5000",
+      "expected_va": 5000,
+      "invoice_date": "2026-06-18",
+      "Invoice_number": "INV-DTF-DHV-AUTO-006-SC12-August"
+    }
+  }
+}
